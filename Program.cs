@@ -6,7 +6,7 @@ using DSharpPlus.Entities;
 using DSharpPlus.ModernEmbedBuilder;
 
 
-namespace RubyFlash
+namespace RubiFlash
 {
     class Program
     {
