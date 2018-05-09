@@ -6,7 +6,7 @@ using DSharpPlus.Entities;
 using DSharpPlus.ModernEmbedBuilder;
 
 
-namespace RubiFlash
+namespace RubyFlash
 {
     class Program
     {
@@ -18,7 +18,7 @@ namespace RubiFlash
             Console.WriteLine("Versuche mit Bot zu verbinden...");
             client = new DiscordClient(new DiscordConfiguration()
             {
-                Token = ":blobsmirk:",
+                Token = "TOKEN NOT HERE",
                 TokenType = TokenType.Bot
             });
 
@@ -134,6 +134,18 @@ namespace RubiFlash
                             await e.Channel.SendMessageAsync("at the moment only the guild woner can use this command!");
                         }
                     }
+                }
+                if (cmd.StartsWith("bug"))
+                {
+                    String bugmessage = e.Message.Content.ToString();
+                    DiscordChannel bugchannel = await client.GetChannelAsync(440589976921440273);
+                    await bugchannel.SendMessageAsync("@everyone" + bugmessage);
+                    await e.Channel.SendMessageAsync("Succesfully reported the bug! Thank you <3");
+                }
+
+                if (cmd.StartsWith("ping"))
+                {
+                    await e.Channel.SendMessageAsync("my Ping is " + client.Ping.ToString());
                 }
             };
 
